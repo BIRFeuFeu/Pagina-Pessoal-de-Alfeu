@@ -1,1 +1,129 @@
-
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Site Pessoal</title>
+  
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hero-banner">
+    <div class="profile-photo">
+      👤
+    </div>
+    <h1 class="hero-title" id="mainTitle">Seu Nome</h1>
+    <p class="hero-subtitle" id="subtitle">Sua Profissão ou Frase</p>
+    <p class="hero-description" id="description">Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único. Esta é sua oportunidade de se apresentar ao mundo!</p>
+  </div>
+  
+  <div class="container">
+    <div class="categories-section">
+      <div class="section-header">
+        <h2 class="section-title" id="sectionTitle">Conheça Minha História</h2>
+        <p class="section-subtitle" id="sectionSubtitle">Explore diferentes aspectos da minha vida e jornada pessoal</p>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card" data-category="biography">
+          <div class="category-image">
+            <div class="photo-placeholder">
+              <div class="photo-icon">📖</div>
+              <div class="photo-text">Adicionar Foto da Biografia</div>
+            </div>
+          </div>
+          <div class="category-content">
+            <h2 class="category-title" id="biographyTitle">Biografia</h2>
+            <p class="category-description">Conheça minha história, de onde vim e as experiências que moldaram quem sou hoje.</p>
+          </div>
+        </div>
+        <div class="category-card" data-category="profession">
+          <div class="category-image">
+            <div class="photo-placeholder">
+              <div class="photo-icon">💼</div>
+              <div class="photo-text">Adicionar Foto Profissional</div>
+            </div>
+          </div>
+          <div class="category-content">
+            <h2 class="category-title" id="professionTitle">Profissão</h2>
+            <p class="category-description">Descubra minha carreira, habilidades profissionais e conquistas no mundo do trabalho.</p>
+          </div>
+        </div>
+        <div class="category-card" data-category="friends">
+          <div class="category-image">
+            <div class="photo-placeholder">
+              <div class="photo-icon">👨‍👩‍👧‍👦</div>
+              <div class="photo-text">Adicionar Foto da Família</div>
+            </div>
+          </div>
+          <div class="category-content">
+            <h2 class="category-title" id="friendsTitle">Amigos e Família</h2>
+            <p class="category-description">As pessoas mais importantes da minha vida e os momentos especiais que compartilhamos.</p>
+          </div>
+        </div>
+        <div class="category-card" data-category="relationship">
+          <div class="category-image">
+            <div class="photo-placeholder">
+              <div class="photo-icon">❤️</div>
+              <div class="photo-text">Adicionar Foto do Relacionamento</div>
+            </div>
+          </div>
+          <div class="category-content">
+            <h2 class="category-title" id="relationshipTitle">Relacionamento</h2>
+            <p class="category-description">Minha vida amorosa, relacionamentos significativos e o que valorizo em conexões pessoais.</p>
+          </div>
+        </div>
+        <div class="category-card" data-category="school">
+          <div class="category-image">
+            <div class="photo-placeholder">
+              <div class="photo-icon">🎓</div>
+              <div class="photo-text">Adicionar Foto da Escola</div>
+            </div>
+          </div>
+          <div class="category-content">
+            <h2 class="category-title" id="schoolTitle">Escola</h2>
+            <p class="category-description">Minha jornada educacional, formação acadêmica e aprendizados ao longo dos anos.</p>
+          </div>
+        </div>
+        <div class="category-card" data-category="future">
+          <div class="category-image">
+            <div class="photo-placeholder">
+              <div class="photo-icon">🚀</div>
+              <div class="photo-text">Adicionar Foto dos Planos</div>
+            </div>
+          </div>
+          <div class="category-content">
+            <h2 class="category-title" id="futureTitle">Planos Futuros</h2>
+            <p class="category-description">Meus sonhos, objetivos e onde pretendo estar nos próximos anos da minha vida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="modalPopup" class="modal">
+      <div style="background: white; border-radius: 25px; width: 90%; max-width: 1000px; max-height: 85%; overflow-y: auto; position: relative; box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4); padding: 50px;">
+        <button id="closeModal" style="position: absolute; top: 20px; right: 20px; background: #A599B5; color: white; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); z-index: 10;"> × </button>
+        <h1 id="modalTitle" style="font-size: 48px; font-weight: bold; color: #264653; margin: 0 0 35px 0; padding-right: 60px;">Título da Categoria</h1>
+        <div style="width: 100%; height: 400px; background: #A599B5; border-radius: 20px; margin-bottom: 40px; display: flex; align-items: center; justify-content: center; border: 3px dashed rgba(165, 153, 181, 0.4); overflow: hidden;">
+          <div style="text-align: center; color: white;">
+            <div style="font-size: 100px; margin-bottom: 15px;">📷</div>
+            <div style="font-size: 24px; font-weight: 600;">Adicione sua Foto</div>
+            <div style="font-size: 18px; opacity: 0.85; margin-top: 8px;">Espaço para imagem principal</div>
+          </div>
+        </div>
+        <div style="margin-bottom: 30px;">
+          <h2 style="font-size: 28px; font-weight: bold; color: #264653; margin: 0 0 20px 0;">Sua História</h2>
+          <div id="modalContent" style="font-size: 18px; color: #264653; line-height: 1.9; white-space: pre-wrap; padding: 25px; background: #f8f8f8; border-radius: 15px; border-left: 5px solid #A599B5;">
+            Escreva aqui o conteúdo desta categoria. Compartilhe suas histórias, experiências e pensamentos. Este é o seu espaço para se expressar livremente!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
