@@ -19,11 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     school_content: "Descreva sua jornada educacional desde a infância até hoje. Fale sobre suas escolas favoritas, professores marcantes, matérias que você amava e conquistas acadêmicas. Compartilhe memórias da época de estudante e como a educação impactou sua vida.",
     future_title: "Planos Futuros",
     future_content: "Compartilhe seus sonhos e planos para o futuro. Onde você se vê daqui a 5 ou 10 anos? Quais são seus objetivos pessoais e profissionais? Fale sobre seus projetos, aspirações e o legado que deseja deixar.",
-    primary_color: "#A599B5",
-    secondary_color: "#048A33",
-    background_color: "#E9C46A",
-    text_color: "#264653",
-    accent_color: "#ffffff"
+    
+    // NOVAS CORES DO TEMA ESCURO
+    primary_color: "#c03c04",
+    secondary_color: "#2d2420",
+    background_color: "#3a312c", // Cor dos cards/modal (tom escuro de contraste)
+    text_color: "#d4dbcc",
+    accent_color: "#d4dbcc"
   };
 
   let currentCategory = null;
@@ -80,10 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.style.background = secondaryColor;
     document.querySelector('.hero-banner').style.background = primaryColor;
-    // O seletor original '.hero-subtitle' parecia errado, mas mantive. Se a cor não aplicar, avise.
-    // O modal-close inline no HTML também usa a cor primária, mantive lá.
-    // document.querySelector('.hero-subtitle').style.color = primaryColor; 
-    // document.querySelector('.modal-close').style.background = primaryColor;
+
+    // Aplica as cores nos elementos corretos
+    document.getElementById('closeModal').style.background = primaryColor;
+    document.querySelector('#modalPopup > div').style.background = backgroundColor;
+     document.querySelector('#modalPopup > div > div[style*="height: 400px"]').style.background = primaryColor; // Foto do modal
+     document.querySelector('#modalPopup > div > div[style*="margin-bottom: 30px"] > h2').style.color = textColor; // Título "Sua História"
+     document.getElementById('modalContent').style.color = textColor;
+     document.getElementById('modalContent').style.borderColor = primaryColor;
+     document.getElementById('modalContent').style.background = 'rgba(0,0,0,0.2)'; // Fundo do texto do modal
+    document.getElementById('modalTitle').style.color = textColor;
+
 
     const cards = document.querySelectorAll('.category-card');
     cards.forEach(card => {
@@ -98,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const profilePhoto = document.querySelector('.profile-photo');
     profilePhoto.style.background = textColor;
 
-    const titles = document.querySelectorAll('.hero-title, .category-title, .modal-title, .section-title, .section-subtitle');
+    const titles = document.querySelectorAll('.hero-title, .category-title, .section-title, .section-subtitle');
     titles.forEach(title => {
       title.style.color = textColor;
     });
@@ -109,10 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const categoriesSection = document.querySelector('.categories-section');
-    categoriesSection.style.background = `rgba(233, 196, 106, 0.95)`; // Este estava fixo, mantive.
+    // CORREÇÃO: Usa a cor de fundo do config em vez de amarelo fixo
+    categoriesSection.style.background = backgroundColor; 
 
-    // O modal-content inline no HTML usa backgroundColor, mantive lá.
-    // document.querySelector('.modal-content').style.background = backgroundColor;
+    // Aplica a cor no subtitulo do hero (que estava sendo sobrescrito pelo CSS)
+    document.querySelector('.hero-subtitle').style.color = accentColor;
   }
 
   if (window.elementSdk) {
