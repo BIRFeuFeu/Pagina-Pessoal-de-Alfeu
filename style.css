@@ -254,7 +254,6 @@ body {
 
 .category-card[data-category="profession"] .category-image {
   background-image: url("images/profissao.jpg");
-  background-position: top; /* <-- ADICIONE ESTA LINHA */
 }
 
 .category-card[data-category="friends"] .category-image {
