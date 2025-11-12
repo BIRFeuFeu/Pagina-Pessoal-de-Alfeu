@@ -1,9 +1,10 @@
+
 // Aguarda o HTML ser totalmente carregado antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
   const defaultConfig = {
-    main_title: "Seu Nome",
-    subtitle: "Sua Profissão ou Frase",
+    main_title: "Alfeu de Paula",
+    subtitle: "Lutador de Judô / Estudante",
     description: "Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único. Esta é sua oportunidade de se apresentar ao mundo!",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore diferentes aspectos da minha vida e jornada pessoal",
@@ -32,9 +33,13 @@ Claro, ainda tenho muitos sonhos e ambições que quero conquistar, e sou convic
     profession_title: "Profissão",
     // --- SEU TEXTO FOI ADICIONADO AQUI ---
     profession_content: `Comecei o judô com 6 anos, como faixa branca. Por conta de alguns problemas, acabei parando, mas voltei um ano depois, com a minha sensei atual, Sensei Jacqueline, que atualmente é faixa-preta.
+    
 Quando comecei meu treinamento, meu objetivo era melhorar minha coordenação motora, que era horrível — eu tropeçava nos meus próprios pés e precisava melhorar isso. Felizmente, consegui. Hoje, minha coordenação está muito melhor do que a de muitas pessoas.
+
 Sobre o futuro, no início eu não tinha visão nenhuma, muito menos sobre quem eu poderia me tornar com o judô. Eu treinava apenas por hobby. Mas, quando fiz 14 anos, comecei a competir de forma séria. Nesse mesmo ano, conquistei a classificação para o Campeonato Brasileiro de Judô — uma conquista muito importante, já que, em Araucária, antes de mim e do meu irmão, apenas minha sensei havia conseguido isso, 13 anos atrás.
+
 Nesse campeonato, caso eu vencesse, poderia competir internacionalmente — um sonho! Porém, isso não aconteceu. Ganhei quatro lutas, mas perdi duas, o que me deixou fora da competição. Mesmo assim, consegui ficar em sétimo lugar, o que para mim já foi uma grande conquista. Naquele ano, fui o sétimo melhor de todo o Brasil na minha categoria.
+
 A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir ainda mais longe. Desde então, venho treinando intensamente para realizar o meu sonho: ser um campeão olímpico.`,
     
     friends_title: "Amigos e Família",
