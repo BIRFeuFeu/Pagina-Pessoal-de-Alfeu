@@ -1,10 +1,9 @@
-
 // Aguarda o HTML ser totalmente carregado antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
   const defaultConfig = {
-    main_title: "Alfeu de Paula",
-    subtitle: "Lutador de Judô / Estudante",
+    main_title: "Seu Nome",
+    subtitle: "Sua Profissão ou Frase",
     description: "Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único. Esta é sua oportunidade de se apresentar ao mundo!",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore diferentes aspectos da minha vida e jornada pessoal",
@@ -20,7 +19,7 @@ Essa filosofia também influenciou muito minha personalidade. Sou uma pessoa cal
 
 Falando sobre minha infância, passei-a com meu irmão, Alex Fabiano, dois anos mais novo que eu, e com meus pais, Josiane Silva e Fabiano Aparecido. Por conta do nascimento do meu irmão, vivi uma pequena parte da minha vida morando em Foz do Iguaçu, cidade natal da minha mãe e dele.
 
-Não me lembro de muita coisa, pois era muito novo, mas o que mais me marcou foi o calor extremo. Lá é muito quente — tão quente a ponto de atacar minha dermatite, algo que tenho desde sempre. Pra quem não sabe, dermatite é praticamente uma reação alérgica da pele, que acontece quando a pessoa sua demais. No meu caso, é algo leve.
+Não me lembro de muita coisa, pois era muito novo, but o que mais me marcou foi o calor extremo. Lá é muito quente — tão quente a ponto de atacar minha dermatite, algo que tenho desde sempre. Pra quem não sabe, dermatite é praticamente uma reação alérgica da pele, que acontece quando a pessoa sua demais. No meu caso, é algo leve.
 
 Após alguns meses vivendo lá, voltamos para Araucária. Eu tinha entre 2 e 4 anos, e, a partir daí, tenho apenas pequenas lembranças: lembro de quando morávamos em um sobrado — foi a primeira vez que vi neve! Foi incrível, uma experiência que nunca vou esquecer. Também lembro de outro sobrado, não o mesmo, onde passei uma Páscoa mágica: meus pais enfeitaram a casa inteira com pegadas, ovos e muitas outras coisas. Guardo essas memórias com muito carinho.
 
@@ -31,15 +30,10 @@ Falando agora sobre a fase que vivo, posso afirmar com toda certeza que estou fe
 Claro, ainda tenho muitos sonhos e ambições que quero conquistar, e sou convicto de que vou conseguir todos. Mas, se minha vida se mantivesse assim, eu também estaria satisfeito.`,
     
     profession_title: "Profissão",
-    // --- SEU TEXTO FOI ADICIONADO AQUI ---
     profession_content: `Comecei o judô com 6 anos, como faixa branca. Por conta de alguns problemas, acabei parando, mas voltei um ano depois, com a minha sensei atual, Sensei Jacqueline, que atualmente é faixa-preta.
-    
 Quando comecei meu treinamento, meu objetivo era melhorar minha coordenação motora, que era horrível — eu tropeçava nos meus próprios pés e precisava melhorar isso. Felizmente, consegui. Hoje, minha coordenação está muito melhor do que a de muitas pessoas.
-
 Sobre o futuro, no início eu não tinha visão nenhuma, muito menos sobre quem eu poderia me tornar com o judô. Eu treinava apenas por hobby. Mas, quando fiz 14 anos, comecei a competir de forma séria. Nesse mesmo ano, conquistei a classificação para o Campeonato Brasileiro de Judô — uma conquista muito importante, já que, em Araucária, antes de mim e do meu irmão, apenas minha sensei havia conseguido isso, 13 anos atrás.
-
 Nesse campeonato, caso eu vencesse, poderia competir internacionalmente — um sonho! Porém, isso não aconteceu. Ganhei quatro lutas, mas perdi duas, o que me deixou fora da competição. Mesmo assim, consegui ficar em sétimo lugar, o que para mim já foi uma grande conquista. Naquele ano, fui o sétimo melhor de todo o Brasil na minha categoria.
-
 A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir ainda mais longe. Desde então, venho treinando intensamente para realizar o meu sonho: ser um campeão olímpico.`,
     
     friends_title: "Amigos e Família",
@@ -57,24 +51,27 @@ A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir a
     // NOVAS CORES DO TEMA ESCURO
     primary_color: "#c03c04",
     secondary_color: "#2d2420",
-    background_color: "#3a312c", // Cor dos cards/modal (tom escuro de contraste)
+    background_color: "#3a312c", 
     text_color: "#d4dbcc",
     accent_color: "#d4dbcc"
   };
 
   let currentCategory = null;
+  // --- NOVAS VARIÁVEIS GLOBAIS PARA O CARROSSEL ---
+  let currentSlideIndex = 0;
+  let totalSlides = 0;
 
-  // MAPA DE CATEGORIAS ATUALIZADO COM IMAGENS
+  // --- MUDANÇA AQUI: `categoryMap` agora usa 'images' (plural) como um array ---
   const categoryMap = {
-    biography:    { title: 'biography_title',    content: 'biography_content',    image: 'images/biografia.jpg' },
-    profession:   { title: 'profession_title',   content: 'profession_content',   image: 'images/profissao.jpg' },
-    friends:      { title: 'friends_title',      content: 'friends_content',      image: 'images/amigos.jpg' },
-    relationship: { title: 'relationship_title', content: 'relationship_content', image: 'images/relacionamento.jpg' },
-    school:       { title: 'school_title',       content: 'school_content',       image: 'images/escola.jpg' },
-    future:       { title: 'future_title',       content: 'future_content',       image: 'images/futuro.jpg' }
+    biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg'] },
+    profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg'] },
+    friends:      { title: 'friends_title',      content: 'friends_content',      images: ['images/amigos.jpg', 'images/amigos2.jpg'] },
+    relationship: { title: 'relationship_title', content: 'relationship_content', images: ['images/relacionamento.jpg', 'images/relacionamento2.jpg'] },
+    school:       { title: 'school_title',       content: 'school_content',       images: ['images/escola.jpg', 'images/escola2.jpg'] },
+    future:       { title: 'future_title',       content: 'future_content',       images: ['images/futuro.jpg'] }
   };
 
-  // FUNÇÃO OPENMODAL ATUALIZADA
+  // --- MUDANÇA AQUI: `openModal` foi reescrito para o carrossel ---
   function openModal(category) {
     const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
     const categoryInfo = categoryMap[category];
@@ -82,19 +79,84 @@ A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir a
     document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
     document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     
-    // --- ATUALIZA A FOTO DO MODAL ---
-    document.getElementById('modalPhoto').style.backgroundImage = `url("${categoryInfo.image}")`;
+    // --- LÓGICA DO CARROSSEL ---
+    const slidesContainer = document.querySelector('.carousel-slides');
+    const carouselContainer = document.getElementById('modalPhotoContainer');
     
+    // 1. Limpa slides antigos
+    slidesContainer.innerHTML = ''; 
+    
+    // 2. Pega as imagens (agora sempre um array)
+    const images = categoryInfo.images || [];
+    totalSlides = images.length;
+    currentSlideIndex = 0;
+    
+    // 3. Cria e insere os novos slides
+    if (totalSlides > 0) {
+      images.forEach(imgSrc => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        slide.style.backgroundImage = `url("${imgSrc}")`;
+        slidesContainer.appendChild(slide);
+      });
+    } else {
+      // Fallback se não houver imagens
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.style.backgroundColor = '#2d2420'; // cor de fundo escura
+      slidesContainer.appendChild(slide);
+    }
+    
+    // 4. Mostra/Esconde botões
+    if (totalSlides > 1) {
+      carouselContainer.classList.add('has-multiple-slides');
+    } else {
+      carouselContainer.classList.remove('has-multiple-slides');
+    }
+    
+    // 5. Reseta a posição do slide
+    showSlide(0);
+    
+    // 6. Abre o modal
     document.getElementById('modalPopup').classList.add('active');
     currentCategory = category;
   }
 
+  // --- MUDANÇA AQUI: `closeModal` agora limpa os slides ---
   function closeModal() {
     document.getElementById('modalPopup').classList.remove('active');
     currentCategory = null;
+    
+    // Limpa o carrossel para não "piscar" na próxima abertura
+    setTimeout(() => {
+        const slidesContainer = document.querySelector('.carousel-slides');
+        if (slidesContainer) {
+            slidesContainer.innerHTML = '';
+        }
+    }, 400); // Tempo da animação do modal (se houver)
   }
 
-  // FUNÇÃO ONCONFIGCHANGE ATUALIZADA (TEMA ESCURO)
+  // --- NOVAS FUNÇÕES DO CARROSSEL ---
+  function showSlide(index) {
+    const slidesContainer = document.querySelector('.carousel-slides');
+    if (!slidesContainer || totalSlides === 0) return;
+    
+    if (index >= totalSlides) index = 0;
+    if (index < 0) index = totalSlides - 1;
+    
+    currentSlideIndex = index;
+    slidesContainer.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+  }
+  
+  function nextSlide() {
+    showSlide(currentSlideIndex + 1);
+  }
+  
+  function prevSlide() {
+    showSlide(currentSlideIndex - 1);
+  }
+
+  // --- MUDANÇA AQUI: `onConfigChange` foi limpo ---
   async function onConfigChange(config) {
     document.getElementById('mainTitle').textContent = config.main_title || defaultConfig.main_title;
     document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
@@ -126,24 +188,21 @@ A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir a
     // Aplica as cores nos elementos corretos
     document.getElementById('closeModal').style.background = primaryColor;
     document.querySelector('#modalPopup > div').style.background = backgroundColor;
-    // document.getElementById('modalPhoto').style.background = primaryColor; // Remove, pois agora é uma imagem
     document.querySelector('#modalPopup > div > div[style*="margin-bottom: 30px"] > h2').style.color = textColor; // Título "Sua História"
     document.getElementById('modalContent').style.color = textColor;
     document.getElementById('modalContent').style.borderColor = primaryColor;
-    document.getElementById('modalContent').style.background = 'rgba(0,0,0,0.2)'; // Fundo do texto do modal
+    document.getElementById('modalContent').style.background = 'rgba(0,0,0,0.2)'; 
     document.getElementById('modalTitle').style.color = textColor;
+    
+    document.querySelectorAll('.carousel-btn').forEach(btn => {
+        btn.style.backgroundColor = `rgba(0, 0, 0, 0.4)`;
+    });
     
     // Cor da borda hover do card
     document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('mouseenter', () => card.style.borderColor = primaryColor);
         card.addEventListener('mouseleave', () => card.style.borderColor = 'transparent');
     });
-    
-    // Cor da barra de cima do card no hover
-    document.querySelectorAll('.category-card::before').forEach(el => {
-        el.style.background = primaryColor;
-    });
-
 
     const cards = document.querySelectorAll('.category-card');
     cards.forEach(card => {
@@ -152,13 +211,11 @@ A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir a
 
     const categoryImages = document.querySelectorAll('.category-image');
     categoryImages.forEach(img => {
-      // Não definimos mais o 'background' aqui, pois é uma imagem
-      // img.style.background = primaryColor; 
+      // A cor de fundo não é mais necessária aqui
     });
 
     const profilePhoto = document.querySelector('.profile-photo');
-    // Não definimos mais o 'background' aqui, pois é uma imagem
-    // profilePhoto.style.background = textColor; 
+    // A cor de fundo não é mais necessária aqui
 
     const titles = document.querySelectorAll('.hero-title, .category-title, .section-title, .section-subtitle');
     titles.forEach(title => {
@@ -268,5 +325,9 @@ A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir a
       closeModal();
     }
   });
+
+  // --- NOVOS EVENT LISTENERS DO CARROSSEL ---
+  document.getElementById('carouselBtnNext').addEventListener('click', nextSlide);
+  document.getElementById('carouselBtnPrev').addEventListener('click', prevSlide);
 
 });
